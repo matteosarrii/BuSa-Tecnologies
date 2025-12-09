@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # BuSa Technologies - Sito Web Multisezionato
 
 ## Struttura del Progetto
@@ -163,3 +164,6 @@ Questo progetto è disponibile per uso personale e commerciale.
 
 **Creato per BuSa Technologies**
 Ultimo aggiornamento: Dicembre 2025
+=======
+https://matteosarrii.github.io/BuSa-Tecnologies/
+>>>>>>> 7ec08e235e82a14a4f7ebdeb2eb786b770de7599

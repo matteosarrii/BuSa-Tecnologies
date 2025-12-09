@@ -1,8 +1,623 @@
-<html>
+<!DOCTYPE html>
+<html lang="it">
 <head>
-    <title>BuSa Technologies</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BuSa Technologies - Soluzioni web e gestionali professionali per la tua azienda">
+    <title>BuSa Technologies | Siti Web e Gestionali Aziendali</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+        }
+
+        /* Header e Navbar */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 2rem;
+            text-align: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: slideInDown 0.8s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: slideInUp 0.8s ease;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 0.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Sezione Servizi */
+        .services {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Sezione Why Us */
+        .why-us {
+            background: white;
+            padding: 80px 2rem;
+            margin: 50px 0;
+        }
+
+        .why-us-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .why-us-content h2 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .why-us-content ul {
+            list-style: none;
+        }
+
+        .why-us-content li {
+            padding: 15px 0;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .why-us-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .why-us-image {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            height: 400px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        /* Sezione Portfolio */
+        .portfolio {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 2rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .portfolio-content {
+            padding: 20px;
+        }
+
+        .portfolio-content h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-content p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Sezione Contatti */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 2rem;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .contact-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-item p {
+            opacity: 0.95;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 30px 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Animazioni */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .why-us-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-form {
+                padding: 0 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>BuSa Technologies</h1>
+    <!-- Header e Navbar -->
+    <header>
+        <nav>
+            <a href="#home" class="logo">BuSa Technologies</a>
+            <ul>
+                <li><a href="#services">Servizi</a></li>
+                <li><a href="#why-us">Chi Siamo</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Trasforma il Tuo Business con la Tecnologia</h1>
+            <p>Siti web moderni e gestionali professionali per aziende in crescita</p>
+            <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contattaci</button>
+            <a href="#services" class="btn btn-secondary">Scopri i Servizi</a>
+        </div>
+    </section>
+
+    <!-- Sezione Servizi -->
+    <section class="services" id="services">
+        <h2 class="section-title">I Nostri Servizi</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">🌐</span>
+                <h3>Siti Web Professionali</h3>
+                <p>Creiamo siti web responsivi e moderni, ottimizzati per i motori di ricerca e progettati per convertire i visitatori in clienti.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">⚙️</span>
+                <h3>Gestionali Aziendali</h3>
+                <p>Software personalizzato per gestire inventario, vendite, risorse umane e tutti i processi della tua azienda.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">📱</span>
+                <h3>App Mobile</h3>
+                <p>Applicazioni iOS e Android native o cross-platform per raggiungere i tuoi clienti ovunque si trovino.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🔧</span>
+                <h3>Manutenzione e Support</h3>
+                <p>Supporto tecnico continuo, aggiornamenti di sicurezza e manutenzione per garantire il corretto funzionamento.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">📊</span>
+                <h3>Analytics e Reporting</h3>
+                <p>Analisi dettagliate dei dati con dashboard personalizzati per monitorare le performance della tua azienda.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🛡️</span>
+                <h3>Sicurezza e Compliance</h3>
+                <p>Implementazione di standard di sicurezza, crittografia e conformità GDPR e normative locali.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Why Us -->
+    <section class="why-us" id="why-us">
+        <div class="why-us-content">
+            <div>
+                <h2>Perché Scegliere BuSa Technologies</h2>
+                <ul>
+                    <li>Esperienza di 15+ anni nel settore IT</li>
+                    <li>Team di esperti sviluppatori e designer</li>
+                    <li>Soluzioni personalizzate per ogni esigenza</li>
+                    <li>Supporto post-vendita garantito 24/7</li>
+                    <li>Tecnologie moderne e aggiornate</li>
+                    <li>Prezzi competitivi e trasparenti</li>
+                    <li>Partnership a lungo termine con i clienti</li>
+                    <li>Certificazioni internazionali</li>
+                </ul>
+            </div>
+            <div class="why-us-image">💼</div>
+        </div>
+    </section>
+
+    <!-- Sezione Portfolio -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="section-title">Portfolio Progetti</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-image">🏪</div>
+                <div class="portfolio-content">
+                    <h3>E-commerce Platform</h3>
+                    <p>Piattaforma di vendita online con gestione inventario completa per azienda retail.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">🏥</div>
+                <div class="portfolio-content">
+                    <h3>Sistema Prenotazioni Medici</h3>
+                    <p>Gestionale per clinica con prenotazioni online e cartelle cliniche digitali.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">📚</div>
+                <div class="portfolio-content">
+                    <h3>Piattaforma E-learning</h3>
+                    <p>Sistema di formazione online con corsi interattivi e certificazioni.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">🍕</div>
+                <div class="portfolio-content">
+                    <h3>App Delivery Food</h3>
+                    <p>Applicazione mobile per ristorante con sistema di ordini e consegne.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">🏗️</div>
+                <div class="portfolio-content">
+                    <h3>ERP Costruzioni</h3>
+                    <p>Gestionale completo per azienda di costruzioni con progettazione integrata.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">💰</div>
+                <div class="portfolio-content">
+                    <h3>Sistema Contabilità</h3>
+                    <p>Software di contabilità e fatturazione con integrazione banca.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Contatti -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <h2>Mettiamoci in Contatto</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>📍 Indirizzo</h3>
+                    <p>Via Tecnologia 123<br>20100 Milano, Italia</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📞 Telefono</h3>
+                    <p>+39 02 1234 5678<br>+39 392 123 4567</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📧 Email</h3>
+                    <p>info@busa-tech.it<br>support@busa-tech.it</p>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3 style="margin-bottom: 20px;">Inviaci un Messaggio</h3>
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefono</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Messaggio</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; background: white; color: #667eea;">Invia Messaggio</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 BuSa Technologies. Tutti i diritti riservati.</p>
+        <p>Privacy Policy | Termini di Servizio | Cookie Policy</p>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            alert(`Grazie ${name}! Il tuo messaggio è stato inviato. Ti contatteremo presto a ${email}`);
+            event.target.reset();
+        }
+
+        // Smooth scroll per i link di navigazione
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
